@@ -1,0 +1,20 @@
+GOI SUA FREE-INTERNET (kiem tra cu phap JS, CHUA test runtime tren Cloudflare)
+
+1. Giai nen, dua _worker.js va wrangler.toml len thu muc GOC cua repo GitHub notthinkvn/free-internet (ghi de file cu).
+2. Commit vao nhanh main. Cloudflare > Workers & Pages > free-internet > Deployments xem build moi.
+3. Test: https://free-internet.notthinkvn.workers.dev/health
+   Neu tra ve {"ok":true,...} thi Worker da khoi dong duoc.
+4. UUID: Cloudflare dang co bien UUID thi bien nay UU TIEN, link config hien tai la:
+   https://free-internet.notthinkvn.workers.dev/b7e2c941-5a38-4f6d-9c12-86d0a4e735bf
+   Neu xoa bien Cloudflare UUID, UUID mac dinh cua file moi la: 8a03a5f8-c1df-4cd1-a6e4-db5a68243f84
+5. Neu con Error 1101, vao Observability > Logs, copy exception.
+
+Chu y: wrangler.toml la file text, khong can npm build. Worker khong tao data 4G mien phi khi SIM 0MB.
+
+Cac thay doi:
+- Khoi phuc JavaScript hop le tu ban markdown da dan.
+- UUID mac dinh hop le.
+- Them /health va ghi console.error de chan doan.
+- Gioi han thoi gian goi DNS 4.5s va fallback.
+- Trang chu nhe de kiem tra.
+- Giu logic config/subscription/VLESS trong script goc.
